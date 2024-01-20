@@ -166,15 +166,16 @@ with tab2:
     if uploaded_file is not None:
         data = pd.read_csv(uploaded_file)
         predictions = predict_bulk(model, preprocessor, data)
-        data['Prediction'] = predictions
-        data['Prediction'] = data['Prediction'].map({0: 'Purchase', 1: 'Not Purchase'})
+        predictions_df = pd.DataFrame(predictions, columns=['Prediction'])
+        predictions_df['Prediction'] = predictions_df['Prediction'].map({0: 'Purchase', 1: 'Not Purchase'})
+        results = pd.concat([predictions_df, data], axis=1)  # Concatenating predictions with the data
         
         # Displaying predictions
         st.write("Results with Predictions:")
-        st.dataframe(data)
+        st.dataframe(results)
 
         # Download link for results
-        csv = convert_df_to_csv(data)
+        csv = convert_df_to_csv(results)
         st.download_button(label="Download Predictions as CSV",
                            data=csv,
                            file_name='predictions.csv',
