@@ -119,7 +119,7 @@ with tab1:
         # st.write("Transformed Data:", transformed_data)
         # st.write("Prediction:", prediction)
         
-        if prediction[0] == 0:
+        if prediction[0] == 1:
             st.success('The customer is likely to purchase a travel package.')
         else:
             st.error('The customer is unlikely to purchase a travel package.')
