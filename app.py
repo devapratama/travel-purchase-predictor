@@ -49,42 +49,50 @@ tab1, tab2 = st.tabs(["Single Prediction", "Multi Prediction"])
 with tab1:
     # Collecting user inputs
     with st.form("prediction_form"):
-        st.write("Please fill in the customer's details to predict the likelihood of purchasing a travel package:")
-
-        age = st.number_input('Age', min_value=18, max_value=100, value=30, help='Enter the age of the customer.')
+        st.write("## Customer Detail Form")
+        st.markdown("""
+        Please provide the following details about the customer to predict their likelihood of purchasing a travel package.
+        """)
+    
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            age = st.number_input('Age', min_value=18, max_value=100, value=30)
+        with col2:
+            gender = st.radio('Gender', ['Male', 'Female'])
+        with col3:
+            city_tier = st.selectbox('City Tier', [1, 2, 3], format_func=lambda x: f"Tier {x}")
+    
+        col4, col5 = st.columns(2)
+        with col4:
+            occupation = st.selectbox('Occupation', ['Salaried', 'Self Employed', 'Free Lancer', 'Small Business'])
+        with col5:
+            marital_status = st.selectbox('Marital Status', ['Single', 'Married', 'Divorced'])
+    
+        st.markdown("### Contact & Travel Information")
         typeofcontact = st.selectbox('Type of Contact', 
-                                    ['Self Enquiry', 'Company Invited', 'Other'], 
-                                    help='How was the customer contacted? Self-initiated or company-invited?')
-        city_tier = st.number_input('City Tier', min_value=1, max_value=3, value=1, 
-                                    help='Tier of the city where the customer resides (1, 2, or 3).')
-        duration_of_pitch = st.number_input('Duration of Pitch (minutes)', min_value=5, max_value=120, value=10, 
-                                            help='Duration of the pitch provided to the customer (in minutes).')
-        gender = st.selectbox('Gender', ['Male', 'Female'], help='Select the gender of the customer.')
-        occupation = st.selectbox('Occupation', ['Salaried', 'Self Employed', 'Free Lancer', 'Small Business'],
-                                help='What is the occupation of the customer?')
-        marital_status = st.selectbox('Marital Status', ['Single', 'Married', 'Divorced'],
-                                    help='Select the marital status of the customer.')
-        number_of_person_visiting = st.number_input('Number of Persons Visiting', min_value=1, max_value=10, value=2,
-                                                    help='How many people are visiting, including the customer?')
-        number_of_followups = st.number_input('Number of Follow-ups', min_value=1, max_value=10, value=4,
-                                            help='How many follow-up sessions were there?')
-        product_pitched = st.selectbox('Product Pitched', ['Basic', 'Standard', 'Deluxe', 'Super Deluxe', 'King'],
-                                    help='Which type of travel package was pitched to the customer?')
-        preferred_property_star = st.selectbox('Preferred Property Star', [3, 4, 5],
-                                            help='What is the star rating of the property preferred by the customer?')
-        number_of_trips = st.number_input('Number of Trips', min_value=0, max_value=50, value=2,
-                                        help='How many trips has the customer taken?')
-        passport = st.selectbox('Passport', [0, 1], help='Does the customer have a passport? (1 for Yes, 0 for No)')
-        pitch_satisfaction_score = st.number_input('Pitch Satisfaction Score', min_value=1, max_value=5, value=3,
-                                                help='Rate the customer’s satisfaction with the pitch (1-5).')
-        own_car = st.selectbox('Own Car', [0, 1], help='Does the customer own a car? (1 for Yes, 0 for No)')
-        number_of_children_visiting = st.number_input('Number of Children Visiting', min_value=0, max_value=5, value=1,
-                                                    help='How many children are visiting along with the customer?')
-        designation = st.selectbox('Designation', ['Manager', 'Executive', 'Senior Manager', 'AVP', 'VP'],
-                                help='What is the professional designation of the customer?')
-        monthly_income = st.number_input('Monthly Income', min_value=0, 
-                                        help='Enter the monthly income of the customer.')
-
+                                    ['Self Enquiry', 'Company Invited', 'Other'],
+                                    help='How the customer was approached.')
+        duration_of_pitch = st.slider('Duration of Pitch (minutes)', min_value=5, max_value=120, value=10)
+        number_of_person_visiting = st.slider('Number of Persons Visiting', min_value=1, max_value=10, value=2)
+        number_of_followups = st.slider('Number of Follow-ups', min_value=1, max_value=10, value=4)
+    
+        st.markdown("### Travel Preferences")
+        product_pitched = st.radio('Product Pitched', ['Basic', 'Standard', 'Deluxe', 'Super Deluxe', 'King'])
+        preferred_property_star = st.radio('Preferred Property Star', [3, 4, 5])
+        number_of_trips = st.slider('Number of Trips', min_value=0, max_value=50, value=2)
+    
+        st.markdown("### Additional Information")
+        col6, col7 = st.columns(2)
+        with col6:
+            passport = st.radio('Has Passport', ['Yes', 'No'], format_func=lambda x: "Yes" if x == 1 else "No")
+        with col7:
+            own_car = st.radio('Owns a Car', ['Yes', 'No'], format_func=lambda x: "Yes" if x == 1 else "No")
+    
+        pitch_satisfaction_score = st.slider('Pitch Satisfaction Score', min_value=1, max_value=5, value=3)
+        number_of_children_visiting = st.slider('Number of Children Visiting', min_value=0, max_value=5, value=1)
+        designation = st.selectbox('Designation', ['Manager', 'Executive', 'Senior Manager', 'AVP', 'VP'])
+        monthly_income = st.number_input('Monthly Income', min_value=0)
+    
         submit_button = st.form_submit_button("Predict")
 
     # Prediction
