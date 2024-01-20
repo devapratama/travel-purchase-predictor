@@ -51,48 +51,65 @@ with tab1:
     with st.form("prediction_form"):
         st.write("## Customer Detail Form")
         st.markdown("""
-        Please provide the following details about the customer to predict their likelihood of purchasing a travel package.
-        """)
-    
+            Provide details about the customer to predict the likelihood of them purchasing a travel package. Hover over the info icons for guidance on each field.
+            """)
+
         col1, col2, col3 = st.columns(3)
         with col1:
-            age = st.number_input('Age', min_value=18, max_value=100, value=30)
+            age = st.number_input('Age', min_value=18, max_value=100, value=20, help='Age of the customer. Should be between 18 and 100.')
         with col2:
-            gender = st.radio('Gender', ['Male', 'Female'])
+            gender = st.radio('Gender', ['Male', 'Female'], help='Gender of the customer. Please select one.')
         with col3:
-            city_tier = st.selectbox('City Tier', [1, 2, 3], format_func=lambda x: f"Tier {x}")
-    
+            city_tier = st.selectbox('City Tier', [1, 2, 3], format_func=lambda x: f"Tier {x}", 
+                                    help='City classification based on size and economic activity. Tier 1 is typically a large metro city.')
+
         col4, col5 = st.columns(2)
         with col4:
-            occupation = st.selectbox('Occupation', ['Salaried', 'Self Employed', 'Free Lancer', 'Small Business'])
+            occupation = st.selectbox('Occupation', ['Salaried', 'Self Employed', 'Free Lancer', 'Small Business'], 
+                                    help='Main occupation of the customer. Choose the option that best describes their employment status.')
         with col5:
-            marital_status = st.selectbox('Marital Status', ['Single', 'Married', 'Divorced'])
-    
+            marital_status = st.selectbox('Marital Status', ['Single', 'Married', 'Divorced'], 
+                                        help='Marital status of the customer. Please select the current status.')
+
         st.markdown("### Contact & Travel Information")
-        typeofcontact = st.selectbox('Type of Contact', 
-                                    ['Self Enquiry', 'Company Invited', 'Other'],
-                                    help='How the customer was approached.')
-        duration_of_pitch = st.slider('Duration of Pitch (minutes)', min_value=5, max_value=120, value=10)
-        number_of_person_visiting = st.slider('Number of Persons Visiting', min_value=1, max_value=10, value=2)
-        number_of_followups = st.slider('Number of Follow-ups', min_value=1, max_value=10, value=4)
-    
+        typeofcontact = st.selectbox('Type of Contact', ['Self Enquiry', 'Company Invited', 'Other'], 
+                                    help='How the customer heard about the travel package. Self Enquiry means they contacted the company themselves.')
+        duration_of_pitch = st.slider('Duration of Pitch (minutes)', min_value=5, max_value=120, value=5, 
+                                    help='How long the sales pitch lasted, in minutes.')
+        number_of_person_visiting = st.slider('Number of Persons Visiting', min_value=1, max_value=10, value=1, 
+                                            help='How many individuals, including the customer, are considering the travel package?')
+        number_of_followups = st.slider('Number of Follow-ups', min_value=1, max_value=10, value=1, 
+                                    help='The number of times the customer was followed up after the initial contact.')
+
         st.markdown("### Travel Preferences")
-        product_pitched = st.radio('Product Pitched', ['Basic', 'Standard', 'Deluxe', 'Super Deluxe', 'King'])
-        preferred_property_star = st.radio('Preferred Property Star', [3, 4, 5])
-        number_of_trips = st.slider('Number of Trips', min_value=0, max_value=50, value=2)
-    
+        col8, col9 = st.columns(2)
+        with col8:
+            product_pitched = st.radio('Product Pitched', ['Basic', 'Standard', 'Deluxe', 'Super Deluxe', 'King'],
+                                    help='The travel package level presented to the customer. Options range from Basic to King, with King being the most premium.')
+        with col9:
+            preferred_property_star = st.radio('Preferred Property Star', [3, 4, 5],
+                                            help='Preferred star rating of the hotel or accommodation by the customer. Ratings range from 3 to 5 stars.')
+        number_of_trips = st.slider('Number of Trips', min_value=0, max_value=50, value=0,
+                                    help='The total number of trips previously taken by the customer.')
+
         st.markdown("### Additional Information")
         col6, col7 = st.columns(2)
         with col6:
-            passport = st.radio('Has Passport', ['Yes', 'No'], format_func=lambda x: "Yes" if x == 1 else "No")
+            passport = st.radio('Has Passport', [1, 0], format_func=lambda x: "Yes" if x == 1 else "No", 
+                                help='Indicates if the customer has a valid passport. Yes for having a passport, No otherwise.')
         with col7:
-            own_car = st.radio('Owns a Car', ['Yes', 'No'], format_func=lambda x: "Yes" if x == 1 else "No")
-    
-        pitch_satisfaction_score = st.slider('Pitch Satisfaction Score', min_value=1, max_value=5, value=3)
-        number_of_children_visiting = st.slider('Number of Children Visiting', min_value=0, max_value=5, value=1)
-        designation = st.selectbox('Designation', ['Manager', 'Executive', 'Senior Manager', 'AVP', 'VP'])
-        monthly_income = st.number_input('Monthly Income', min_value=0)
-    
+            own_car = st.radio('Owns a Car', [1, 0], format_func=lambda x: "Yes" if x == 1 else "No", 
+                            help='Indicates if the customer owns a car. Yes for owning a car, No otherwise.')
+
+        pitch_satisfaction_score = st.slider('Pitch Satisfaction Score', min_value=1, max_value=5, value=3, 
+                                            help='The customer’s level of satisfaction with the sales pitch, on a scale of 1 to 5.')
+        number_of_children_visiting = st.slider('Number of Children Visiting', min_value=0, max_value=10, value=0, 
+                                                help='How many children will be accompanying the customer on the trip.')
+        designation = st.selectbox('Designation', ['Manager', 'Executive', 'Senior Manager', 'AVP', 'VP'], 
+                                help='The professional title of the customer within their organization.')
+        monthly_income = st.number_input('Monthly Income', min_value=0, 
+                                        help='The average monthly income of the customer in US$')
+
         submit_button = st.form_submit_button("Predict")
 
     # Prediction
