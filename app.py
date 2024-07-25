@@ -108,7 +108,7 @@ with tab1:
         designation = st.selectbox('Designation', ['Manager', 'Executive', 'Senior Manager', 'AVP', 'VP'], 
                                 help='The professional title of the customer within their organization.')
         monthly_income = st.number_input('Monthly Income', min_value=0, 
-                                        help='The average monthly income of the customer in US$')
+                                        help='The average monthly income of the customer in USD.')
 
         submit_button = st.form_submit_button("Predict")
 
