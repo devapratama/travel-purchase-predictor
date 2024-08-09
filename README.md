@@ -198,10 +198,11 @@ Berikut adalah empat fitur tambahan yang mungkin akan membantu meningkatkan perf
 ### A. Feature Importance Evaluation
 ![Feature Importance](assets/feature_importance.png)
 
-- Hasil evaluasi model Random Forest menunjukkan performa yang sangat baik, dengan beberapa fitur yang memiliki pengaruh signifikan pada prediksi. Kolom Age (Usia) pelanggan mendominasi sebagai fitur paling berpengaruh, mencerminkan tahapan kehidupan yang mempengaruhi keputusan pembelian. Kolom Duration Of Pitch berada di peringkat kedua, mencerminkan tingkat ketertarikan pelanggan dan efektivitas presentasi. Kolom Monthly Income memainkan peran kunci dalam daya beli konsumen, sementara Kolom Number Follow Ups dan Number of Trips juga memiliki signifikansi dalam memahami preferensi dan perilaku pelanggan.
+- Hasil evaluasi model XGBoost menunjukkan performa yang sangat baik, dengan beberapa fitur yang memiliki pengaruh signifikan pada prediksi. Kolom Age (Usia) pelanggan mendominasi sebagai fitur paling berpengaruh, mencerminkan tahapan kehidupan yang mempengaruhi keputusan pembelian. Kolom Duration Of Pitch berada di peringkat kedua, mencerminkan tingkat ketertarikan pelanggan dan efektivitas presentasi. Kolom Monthly Income memainkan peran kunci dalam daya beli konsumen, sementara Kolom Number Follow Ups dan Number of Trips juga memiliki signifikansi dalam memahami preferensi dan perilaku pelanggan.
 
 ![Shap values](assets/shap_values.png)
-- Analisis grafik SHAP untuk model Random Forest juga memberikan beberapa wawasan/insight penting. Nilai tinggi pada fitur Passport cenderung berdampak positif, menandakan hubungannya dengan kemungkinan perjalanan dan keputusan pembelian. Fitur Product Pitched memiliki dampak yang bervariasi, menunjukkan pentingnya pemahaman preferensi produk pelanggan. MaritalStatus_Married, khususnya yang sudah menikah, berkontribusi positif pada prediksi. Designation dan NumberOfFollowups  mempengaruhi prediksi dengan variasi, menyoroti pentingnya strategi yang tepat. Age (Usia) tetap menjadi faktor kunci, dengan pengaruh yang bervariasi tergantung pada kelompok usia.
+
+- Analisis grafik SHAP untuk model XGBoost juga memberikan beberapa wawasan/insight penting. Nilai tinggi pada fitur Passport cenderung berdampak positif, menandakan hubungannya dengan kemungkinan perjalanan dan keputusan pembelian. Fitur Product Pitched memiliki dampak yang bervariasi, menunjukkan pentingnya pemahaman preferensi produk pelanggan. MaritalStatus_Married, khususnya yang sudah menikah, berkontribusi positif pada prediksi. Designation dan NumberOfFollowups  mempengaruhi prediksi dengan variasi, menyoroti pentingnya strategi yang tepat. Age (Usia) tetap menjadi faktor kunci, dengan pengaruh yang bervariasi tergantung pada kelompok usia.
 
 ### B. Business Insight
 - Analisis feature importance menunjukkan bahwa "Age", "DurationOfPitch", dan "MonthlyIncome" adalah tiga fitur teratas yang mempengaruhi prediksi model Random Forest Anda. Ini mengindikasikan bahwa usia, durasi pitch, dan pendapatan bulanan memiliki dampak signifikan terhadap keputusan pelanggan.
@@ -211,14 +212,8 @@ Berikut adalah empat fitur tambahan yang mungkin akan membantu meningkatkan perf
 - Optimasi Strategi Pemasaran: Menyadari pengaruh usia terhadap keputusan, pemasar dapat menyusun strategi segmentasi yang lebih baik. Sebagai contoh, tawaran khusus atau promosi dapat disesuaikan berdasarkan kelompok usia.
 
 ### C. Business Recommendation
-Berikut merupakan rekomendasi bisnis berdasarkan analisis fitur model:
-- Personalisasi produk berdasarkan preferensi konsumen: Customization produk berdasarkan preferensi pelanggan.
-- Tingkatkan durasi interaksi dengan pelanggan: Interaksi yang lebih lama dengan pelanggan untuk memberikan informasi lebih.
-- Segmentasi pemasaran berdasarkan kelompok usia: Penargetan yang sesuai dengan kelompok usia.
-- Fokus pada pelanggan berpendapatan tinggi dengan penawaran khusus: Penawaran khusus untuk pelanggan berpendapatan tinggi.
-- Optimalisasi strategi komunikasi dan tindak lanjut: Penyesuaian taktik komunikasi.
-- Program inisiatif kepemilikan paspor untuk pelanggan: Inisiatif kerjasama dengan agen perjalanan atau kantor imigrasi.
-- Pendekatan berbasis status pernikahan untuk penawaran khusus: Penawaran khusus berdasarkan status pernikahan.
+![Business1](assets/business1.png)
+![Business2](assets/business2.png)
 
 Untuk memaksimalkan potensi bisnis, perusahaan harus terus memantau dan menilai signifikansi fitur-fitur ini dalam modelnya dan menyesuaikan strategi bisnisnya sesuai. Melalui pendekatan yang lebih data-driven, perusahaan dapat meningkatkan konversi penjualan dan meningkatkan kepuasan pelanggan.
 
