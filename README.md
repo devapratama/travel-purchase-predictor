@@ -223,5 +223,12 @@ Berikut merupakan rekomendasi bisnis berdasarkan analisis fitur model:
 Untuk memaksimalkan potensi bisnis, perusahaan harus terus memantau dan menilai signifikansi fitur-fitur ini dalam modelnya dan menyesuaikan strategi bisnisnya sesuai. Melalui pendekatan yang lebih data-driven, perusahaan dapat meningkatkan konversi penjualan dan meningkatkan kepuasan pelanggan.
 
 ### D. Revenue Simulation
+Pada simulasi pendapatan ini, kami mengasumsikan biaya pemasaran untuk satu pelanggan adalah 30 USD dan pendapatan untuk satu pelanggan yang membeli produk kita adalah 250 USD.
+
 ![Revenue1](assets/revenue1.png)
+
+Sebelumnya, dengan menghubungi 5000 pelanggan secara acak dari total 20000 data pelanggan, conversion rate kita berada di angka 18%, dengan CPA sebesar 166,67 USD. Setelah optimalisasi dengan hanya menghubungi pelanggan yang diprediksi akan membeli oleh model xgboost dengan skor presisi 97.5%, kemudian kita juga mengasumsikan repeat traveler rate sebesar 40%, kita melihat peningkatan conversion rate menjadi 39%, dengan penurunan CPA menjadi 76,92 USD. Ini berarti kita tidak hanya menarik lebih banyak pelanggan, tetapi kita juga melakukannya dengan lebih efisien.
+
 ![Revenue2](assets/revenue2.png)
+
+Terlihat potensi peningkatan Conversion Rate sebesar 21%, penurunan Cost Per Aqcuisition hingga 89.75 USD, dan peningkatan profit sebesar 262,500 USD.
