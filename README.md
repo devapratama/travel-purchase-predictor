@@ -8,7 +8,7 @@ https://travel-purchase-predictor.streamlit.app/
 
 # About Dataset
 
-Dataset berasal dari situs [Kaggle.](https://www.kaggle.com/datasets/susant4learning/holiday-package-purchase-prediction)
+Dataset berasal dari situs [Kaggle](https://www.kaggle.com/datasets/susant4learning/holiday-package-purchase-prediction).
 
 ### Context
 
@@ -21,6 +21,41 @@ Perusahaan "Trips & Travel.Com" berkeinginan untuk memperluas basis pelanggannya
 
 Analisis data pelanggan diperlukan untuk memberikan rekomendasi kepada pembuat kebijakan dan tim pemasaran. Selain itu, model prediksi perlu dibangun untuk menentukan pelanggan potensial yang akan membeli paket liburan Wellness Tourism Package yang baru diperkenalkan.
 
+### Business Metrics
+![Business Metrics](assets/business_metrics.png)
+
+## Table of Contents
+
+1. [Insight and Recommendation From EDA](#1-insight-and-recommendation-from-eda)
+   - [Descriptive Statistics](#1-descriptive-statistics)
+   - [Univariate Analysis](#2-univariate-analysis)
+   - [Multivariate Analysis: Korelasi Fitur-Label](#3a-multivariate-analysis-korelasi-fitur-label)
+   - [Multivariate Analysis: Korelasi antar Fitur](#3b-multivariate-analysis-korelasi-antar-fitur)
+   - [Business Insight](#4-business-insight)
+2. [Data Preprocessing](#2-data-preprocessing)
+   - [Data Cleansing](#1-data-cleansing)
+     - [Handle missing values](#a-handle-missing-values)
+     - [Handle duplicated data](#b-handle-duplicated-data)
+     - [Handle outliers](#c-handle-outliers)
+     - [Feature transformation](#d-feature-transformation)
+     - [Feature encoding](#e-feature-encoding)
+     - [Handle class imbalance](#f-handle-class-imbalance)
+   - [Feature Engineering](#2-feature-engineering)
+     - [Feature selection](#a-feature-selection)
+     - [Feature extraction](#b-feature-extraction)
+     - [Feature Tambahan](#c-feature-tambahan)
+3. [Modeling (Supervised - Classification)](#3-modeling-supervised---classification)
+   - [Modeling](#1-modeling)
+     - [Split Data Train & Test](#a-split-data-train--test)
+     - [Modeling](#b-modeling)
+     - [Model Evaluation: Pemilihan dan perhitungan metrics model](#c-model-evaluation-pemilihan-dan-perhitungan-metrics-model)
+     - [Model Evaluation: Validasi dengan cross-validation](#d-model-evaluation-validasi-dengan-cross-validation)
+     - [Hyperparameter Tuning](#e-hyperparameter-tuning)
+   - [Feature Importance](#2-feature-importance)
+     - [Feature Importance Evaluation](#a-feature-importance-evaluation)
+     - [Business Insight](#b-business-insight)
+     - [Business Recommendation](#c-business-recommendation)
+     - [Revenue Simulation](#d-revenue-simulation)
 # 1. Insight and Recommendation From EDA
 
 ### 1. Descriptive Statistics:
@@ -186,3 +221,7 @@ Berikut merupakan rekomendasi bisnis berdasarkan analisis fitur model:
 - Pendekatan berbasis status pernikahan untuk penawaran khusus: Penawaran khusus berdasarkan status pernikahan.
 
 Untuk memaksimalkan potensi bisnis, perusahaan harus terus memantau dan menilai signifikansi fitur-fitur ini dalam modelnya dan menyesuaikan strategi bisnisnya sesuai. Melalui pendekatan yang lebih data-driven, perusahaan dapat meningkatkan konversi penjualan dan meningkatkan kepuasan pelanggan.
+
+### D. Revenue Simulation
+![Revenue1](assets/revenue1.png)
+![Revenue2](assets/revenue2.png)
